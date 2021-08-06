@@ -21,6 +21,7 @@ namespace Homework_2
             int positiveNum = 0;
             int negativeNum = 0;
             int operation;
+            int lenght;
 
             // Ввод матрицы с клавиатуры.
             for (int i = 0; i < matrix.GetLength(0); i++)
@@ -89,6 +90,8 @@ namespace Homework_2
                         }                        
                     }                    
                 }
+                Console.WriteLine("Результат сортировки: ");
+                Console.WriteLine();
                 for (int i = 0; i < matrix.GetLength(0); i++)
                 {
                     for (int  j = 0;  j < matrix.GetLength(1);  j++)
@@ -100,7 +103,27 @@ namespace Homework_2
             }
             else if (operation == 3)
             {
+                Console.WriteLine("Результат операции: ");
+                Console.WriteLine();
+                lenght = matrix.GetLength(1);
+                for (int i = 0; i < matrix.GetLength(0); i++)
+                {
+                    for (int j = 0; j < matrix.GetLength(1) / 2; j++)
+                    {
+                        int c = matrix[i, j];
+                        matrix[i, j] = matrix[i,lenght -  j - 1];
+                        matrix[i, lenght - j - 1] = c;
+                    }
+                }
 
+                for (int i = 0; i < matrix.GetLength(0); i++)
+                {
+                    for (int j = 0; j < matrix.GetLength(1); j++)
+                    {
+                        Console.Write(" " + matrix[i,j]); 
+                    }
+                    Console.WriteLine("  ");
+                }
             }
         }
     }
