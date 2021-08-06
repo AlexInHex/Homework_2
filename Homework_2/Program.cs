@@ -103,6 +103,7 @@ namespace Homework_2
             }
             else if (operation == 3)
             {
+                //Инверсия матрицы.
                 Console.WriteLine("Результат операции: ");
                 Console.WriteLine();
                 lenght = matrix.GetLength(1);
@@ -124,6 +125,10 @@ namespace Homework_2
                     }
                     Console.WriteLine("  ");
                 }
+            }
+            else
+            {
+                Console.WriteLine("Вы ввели не верный код операции");
             }
         }
     }
