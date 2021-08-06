@@ -20,6 +20,7 @@ namespace Homework_2
 
             int positiveNum = 0;
             int negativeNum = 0;
+            int operation;
 
             // Ввод матрицы с клавиатуры.
             for (int i = 0; i < matrix.GetLength(0); i++)
@@ -48,28 +49,59 @@ namespace Homework_2
             Console.WriteLine("2 - сортировать элементы в строках матрицы (по убыванию)");
             Console.WriteLine("3 - инвертировать все строки в матрице");
             Console.WriteLine("----------------------------------------------------------------------");
+            operation = int.Parse(Console.ReadLine());
+            Console.WriteLine("----------------------------------------------------------------------");
 
-            //Поиск количества положительных и отрицательных членов.
-            for (int i = 0; i < matrix.GetLength(0); i++)
+            if (operation == 1)
             {
-                for (int j = 0; j < matrix.GetLength(1); j++)
+                //Поиск количества положительных и отрицательных членов.
+                for (int i = 0; i < matrix.GetLength(0); i++)
                 {
-                    if (matrix[i,j] > 0)
+                    for (int j = 0; j < matrix.GetLength(1); j++)
                     {
-                        positiveNum++;
-                    }
+                        if (matrix[i, j] > 0)
+                        {
+                            positiveNum++;
+                        }
 
-                    if (matrix[i, j] < 0)
-                    {
-                        negativeNum++;
+                        if (matrix[i, j] < 0)
+                        {
+                            negativeNum++;
+                        }
                     }
                 }
+                Console.WriteLine("Количество положительных элементов = " + positiveNum);
+                Console.WriteLine("Количество отрицательных элементов = " + negativeNum);
             }
-            Console.WriteLine("Количество положительных элементов = " + positiveNum);
-            Console.WriteLine("Количество отрицательных элементов = " + negativeNum);
+            else if (operation == 2)
+            {
+                //Реализация сортировки элементов в строках матрицы по убыванию.
+                for (int i = 0; i < matrix.GetLength(0); i++)
+                {
+                    for (int j = 0; j < matrix.GetLength(1)-1; j++)
+                    {
+                        if (matrix[i, j] < matrix[i, j + 1])
+                        {
+                            int element = matrix[i, j];
+                            matrix[i, j] = matrix[i, j + 1];
+                            matrix[i, j + 1] = element;
+                            
+                        }                        
+                    }                    
+                }
+                for (int i = 0; i < matrix.GetLength(0); i++)
+                {
+                    for (int  j = 0;  j < matrix.GetLength(1);  j++)
+                    {
+                        Console.Write(" " + matrix[i,j]);
+                    }
+                    Console.WriteLine("  ");
+                }
+            }
+            else if (operation == 3)
+            {
 
-
-
+            }
         }
     }
 }
