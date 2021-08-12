@@ -21,7 +21,7 @@ namespace Homework_2
             int positiveNum = 0;
             int negativeNum = 0;
             int operation;
-            int lenght;
+            
 
             // Ввод матрицы с клавиатуры.
             for (int i = 0; i < matrix.GetLength(0); i++)
@@ -79,15 +79,19 @@ namespace Homework_2
                 //Реализация сортировки элементов в строках матрицы по убыванию.
                 for (int i = 0; i < matrix.GetLength(0); i++)
                 {
-                    for (int j = 0; j < matrix.GetLength(1)-1; j++)
+                    for (int j = 0; j < matrix.GetLength(1); j++)
                     {
-                        if (matrix[i, j] < matrix[i, j + 1])
+                        for (int k = 0; k < matrix.GetLength(1) - 1; k++)
                         {
-                            int element = matrix[i, j];
-                            matrix[i, j] = matrix[i, j + 1];
-                            matrix[i, j + 1] = element;
-                            
-                        }                        
+
+                            if (matrix[i, k] >= matrix[i, k + 1])
+                            {
+                                int element = matrix[i, k];
+                                matrix[i, k] = matrix[i, k + 1];
+                                matrix[i, k + 1] = element;
+
+                            }
+                        }
                     }                    
                 }
                 Console.WriteLine("Результат сортировки: ");
@@ -106,7 +110,7 @@ namespace Homework_2
                 //Инверсия матрицы.
                 Console.WriteLine("Результат операции: ");
                 Console.WriteLine();
-                lenght = matrix.GetLength(1);
+                int lenght = matrix.GetLength(1);
                 for (int i = 0; i < matrix.GetLength(0); i++)
                 {
                     for (int j = 0; j < matrix.GetLength(1) / 2; j++)
